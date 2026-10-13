@@ -17,8 +17,17 @@ td{border-bottom:1px solid var(--line)}tr:last-child td{border:0}td.n,th.n{text-
 tr.r{cursor:pointer}tr.r:hover td{background:var(--bg)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 4px 10px;text-align:left;white-space:normal}.chip{border:1px solid var(--line);border-radius:6px;padding:3px 7px;font-size:12px}
 .V{border-left:4px solid var(--ok)}.E{border-left:4px solid var(--warn)}.D{border-left:4px solid var(--bad)}
-.g{padding:12px 14px}.g h3{margin:0 0 8px;font-size:13px;color:var(--mut);font-weight:600}.sc2{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:start}
-.sc2 b{font-size:30px;font-weight:800;padding:0 6px}.sc2 div{font-size:13px}.sc2 .t{font-weight:700;margin-bottom:3px}.sc2 .a{text-align:right}
+:root{--ta:#16396b}@media(prefers-color-scheme:dark){:root{--ta:#7fb0ff}}
+select{width:100%;padding:10px;margin-bottom:12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+.jc.off{opacity:.5}.jh{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}.jh b{font-size:15px}.jh span{color:var(--mut);font-size:13px}
+.rt{margin-left:auto;font-size:12px;font-weight:700;padding:2px 8px 2px 6px;border-radius:6px;background:var(--bg)}
+.jb{position:relative;display:grid;grid-template-columns:1fr auto 1fr}.jb:before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed var(--line)}
+.tm{padding:12px}.tm.a{background:color-mix(in srgb,var(--ta) 8%,transparent)}.tm.b{background:color-mix(in srgb,var(--ball) 10%,transparent)}
+.tm h4{margin:0 0 6px;font-size:13px}.tm.a h4{color:var(--ta)}.tm.b h4{color:var(--ball)}
+.pl{display:inline-block;padding:2px 9px;margin:2px 4px 2px 0;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px}.pl.x{border-style:dashed;color:var(--mut)}
+.mid{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 6px;gap:4px}
+.rg{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:2px solid var(--line);background:var(--card);font-size:30px;font-weight:800;line-height:1}
+.rg em{font-style:normal;color:var(--mut);font-size:20px}.rg .wa{color:var(--ta)}.rg .wb{color:var(--ball)}.rg .lo{opacity:.4}
 .k{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.k div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px}.k b{display:block;font-size:20px}.k span{font-size:12px;color:var(--mut)}
 .ok{color:var(--ok)}.bad{color:var(--bad);font-weight:600}.warn{color:var(--warn)}.m{color:var(--mut)}small{color:var(--mut)}
 </style></head><body>
@@ -33,7 +42,7 @@ fetch('data.json?'+Date.now()).then(r=>r.json()).then(init).catch(()=>$('#app').
 function init(D){
 $('#s').textContent=D.season;$('#u').textContent='Atualizado a '+new Date(D.updated+'T12:00').toLocaleDateString('pt-PT',{day:'numeric',month:'long'});
 const G=D.games.slice().sort((a,b)=>a.date<b.date?-1:1),P={};
-D.players.forEach(p=>P[K(p.name)]={...p,j:0,V:0,E:0,D:0,gm:0,gs:0,log:[]});
+D.players.filter(p=>p.core).forEach(p=>P[K(p.name)]={...p,j:0,V:0,E:0,D:0,gm:0,gs:0,log:[]});
 const pts=p=>p.V*3+p.E*2+p.D,dg=p=>p.gm-p.gs;
 const rank=()=>Object.values(P).sort((x,y)=>pts(y)-pts(x)||dg(y)-dg(x)||y.gm-x.gm||x.name.localeCompare(y.name,'pt'));
 G.forEach((g,i)=>{[[g.a,g.b],[g.b,g.a]].forEach(([me,op])=>me.p.forEach(n=>{const p=P[K(n)];if(!p)return;
@@ -42,24 +51,33 @@ rank().forEach((p,k)=>{const l=p.log[p.log.length-1];if(l&&l.i===i)l.pos=k+1})})
 const R=rank(),rows=[];
 const cls=()=>{let h='<div class="card sc"><table><tr><th></th><th class="n">Jogador</th><th>J</th><th>V</th><th>E</th><th>D</th><th>GM</th><th>GS</th><th>DG</th><th>Pts</th></tr>';
 R.forEach((p,k)=>{h+=`<tr class="r" data-k="${k}"><td><span class="pos ${k?'':'p1'}">${k+1}</span></td><td class="n">${p.name}</td><td>${p.j}</td><td>${p.V}</td><td>${p.E}</td><td>${p.D}</td><td>${p.gm}</td><td>${p.gs}</td><td>${dg(p)>0?'+':''}${dg(p)}</td><td class="pts">${pts(p)}</td></tr>`});
-return h+'</table></div><small>Toca num jogador para ver as jornadas. Vitória 3, empate 2, derrota 1, ausência 0. Desempate: diferença de golos, golos marcados, ordem alfabética.</small>'};
-const jor=()=>G.map((g,i)=>[g,i+1]).reverse().map(([g,n])=>{const l=t=>t.p.join('<br>');
-return `<div class="card g"><h3>Jornada ${n} · ${fd(g.date)}</h3><div class="sc2"><div class="a"><div class="t">Equipa A</div>${l(g.a)}</div><b>${g.a.g}–${g.b.g}</b><div><div class="t">Equipa B</div>${l(g.b)}</div></div></div>`}).join('')||'Ainda sem jornadas.';
+return h+'</table></div><small>Só os jogadores do núcleo são classificados. Toca num jogador para ver as jornadas. Vitória 3, empate 2, derrota 1, ausência 0. Desempate: diferença de golos, golos marcados, ordem alfabética.</small>'};
+let flt='';const core=new Set(D.players.filter(p=>p.core).map(p=>K(p.name)));
+const jor=()=>{const pl=n=>`<span class="pl${core.has(K(n))?'':' x'}">${n}</span>`;
+const opts='<option value="">Todos os jogadores</option>'+D.players.filter(p=>p.core).map(p=>`<option${p.name==flt?' selected':''}>${p.name}</option>`).join('');
+const cards=G.map((g,i)=>[g,i+1]).reverse().map(([g,n])=>{const w=g.a.g>g.b.g?'a':g.a.g<g.b.g?'b':'';let tag='',off='';
+if(flt){const ia=g.a.p.some(x=>K(x)==K(flt)),ib=g.b.p.some(x=>K(x)==K(flt));
+if(ia||ib){const r=!w?'E':(w=='a')==ia?'V':'D';tag=`<span class="rt ${r}">${{V:'Vitória',E:'Empate',D:'Derrota'}[r]}</span>`}else{tag='<span class="rt">Ausente</span>';off=' off'}}
+const ca=w=='a'?'wa':w=='b'?'lo':'',cb=w=='b'?'wb':w=='a'?'lo':'';
+return `<div class="card jc${off}"><div class="jh"><b>Jornada ${n}</b><span>${fd(g.date)}</span>${tag}</div><div class="jb"><div class="tm a"><h4>Equipa A</h4>${g.a.p.map(pl).join('')}</div><div class="mid"><div class="rg"><b class="${ca}">${g.a.g}</b><em>:</em><b class="${cb}">${g.b.g}</b></div><small>${w?'':'Empate'}</small></div><div class="tm b"><h4>Equipa B</h4>${g.b.p.map(pl).join('')}</div></div></div>`}).join('');
+return `<select id="f" aria-label="Filtrar por jogador">${opts}</select>`+(cards||'Ainda sem jornadas.')};
 const qt=()=>{const cnt=Array(11).fill(0),cost=Array(11).fill(0);G.forEach(g=>{const m=mi(g.date);cnt[m]++;cost[m]+=g.cost});
+const num=v=>typeof v=='number'?v:0,has=v=>num(v)>0||v=='-';
 const gm=(k,m)=>G.filter(g=>mi(g.date)==m&&[...g.a.p,...g.b.p].some(n=>K(n)==k)).length;
-const pay=k=>D.pay[k]||Array(11).fill(null);
-const rec=Object.values(D.pay).flat().reduce((a,v)=>a+(v||0),0),pav=cost.reduce((a,b)=>a+b,0),caixa=D.opening+rec-pav;
-const cols=D.months.map((_,m)=>m).filter(m=>cnt[m]||Object.values(D.pay).some(a=>a[m]));
+const rec=Object.values(D.pay).flat().reduce((a,v)=>a+num(v),0),pav=cost.reduce((a,b)=>a+b,0),caixa=D.opening+rec-pav;
+const cols=D.months.map((_,m)=>m).filter(m=>cnt[m]||Object.values(D.pay).some(a=>has(a[m])));
 let h=`<div class="k"><div><b>${eur(caixa)}</b><span>Em caixa</span></div><div><b>${eur(rec+D.opening)}</b><span>Recebido (com saldo anterior)</span></div><div><b>${eur(pav)}</b><span>Pavilhão</span></div></div><div class="card sc"><table><tr><th class="n">Jogador</th>${cols.map(m=>`<th>${D.months[m].slice(0,3)}</th>`).join('')}<th>Estado</th></tr>`;
-D.players.forEach(p=>{const k=K(p.name),py=pay(k);let paid=0,owed=0,c='';
-cols.forEach(m=>{const o=cnt[m]?(p.core?D.quota:D.guestFee*gm(k,m)):0,v=py[m]||0;owed+=o;paid+=v;
-c+=v>=o&&v>0?`<td class="ok">${eur(v)}</td>`:v>0?`<td class="warn">${eur(v)}</td>`:o>0?'<td class="bad">falta</td>':'<td class="m">·</td>'});
-paid+=py.reduce((a,v,m)=>a+(cols.includes(m)?0:v||0),0);const b=paid-owed;
-h+=`<tr><td class="n">${p.name}${p.core?'':' <small>(jogo)</small>'}</td>${c}<td class="${b<0?'bad':'ok'}">${b<0?'deve '+eur(-b):b>0?'+'+eur(b):'em dia'}</td></tr>`});
-return h+'</table></div><small>Núcleo: '+eur(D.quota)+' por mês com jogos. Fora do núcleo: '+eur(D.guestFee)+' por jogo.</small>'};
+D.players.forEach(p=>{const k=K(p.name),py=D.pay[k]||[];let miss=0,bal=0,c='';
+cols.forEach(m=>{const v=py[m];
+if(p.core){if(has(v))c+=`<td class="ok">${v=='-'?'–':eur(v)}</td>`;else if(cnt[m]){miss++;c+='<td class="bad">falta</td>'}else c+='<td class="m">·</td>'}
+else{const o=D.guestFee*gm(k,m);bal+=num(v)-o;c+=num(v)>0?`<td class="${num(v)>=o?'ok':'warn'}">${eur(num(v))}</td>`:o>0?'<td class="bad">falta</td>':'<td class="m">·</td>'}});
+const st=p.core?(miss?`<td class="bad">${miss==1?'falta 1 mês':'faltam '+miss+' meses'}</td>`:'<td class="ok">em dia</td>'):(bal<0?`<td class="bad">deve ${eur(-bal)}</td>`:'<td class="ok">em dia</td>');
+h+=`<tr><td class="n">${p.name}${p.core?'':' <small>(extra)</small>'}</td>${c}${st}</tr>`});
+return h+'</table></div><small>Núcleo: qualquer valor (ou um "–") na folha conta como mensalidade paga nos meses com jogos. Extras: '+eur(D.guestFee)+' por jogo.</small>'};
 const V={c:cls,j:jor,q:qt};let cur='c';
 const show=()=>{$('#app').innerHTML=V[cur]();document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==cur))};
 document.querySelector('nav').onclick=e=>{if(e.target.dataset.t){cur=e.target.dataset.t;show()}};
+$('#app').onchange=e=>{if(e.target.id=='f'){flt=e.target.value;show()}};
 $('#app').onclick=e=>{const tr=e.target.closest('tr.r');if(!tr)return;const nx=tr.nextElementSibling;
 if(nx&&nx.classList.contains('d'))return nx.remove();const p=R[+tr.dataset.k];
 tr.insertAdjacentHTML('afterend',`<tr class="d"><td colspan="10"><div class="chips">${p.log.map(l=>`<span class="chip ${l.r}">J${l.i+1} ${l.s} · ${l.pos}º</span>`).join('')||'<span class="m">Ainda não jogou.</span>'}</div></td></tr>`)};

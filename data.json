@@ -40,7 +40,7 @@
   },
   {
    "name": "Diogo",
-   "core": false
+   "core": true
   },
   {
    "name": "Fabrice",
@@ -52,7 +52,7 @@
   },
   {
    "name": "Hugo",
-   "core": false
+   "core": true
   },
   {
    "name": "João Pedro",
@@ -317,7 +317,7 @@
    null
   ],
   "DIOGO": [
-   null,
+   "-",
    3,
    null,
    null,
@@ -408,10 +408,10 @@
    null
   ],
   "LAMEIRA": [
-   null,
-   null,
-   null,
-   null,
+   5,
+   5,
+   5,
+   5,
    null,
    null,
    null,
