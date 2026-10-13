@@ -1,0 +1,515 @@
+{
+ "season": "2026/2027",
+ "updated": "2026-10-13",
+ "quota": 5,
+ "guestFee": 1.5,
+ "opening": 25,
+ "months": [
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro",
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho"
+ ],
+ "players": [
+  {
+   "name": "Adriano",
+   "core": true
+  },
+  {
+   "name": "André",
+   "core": true
+  },
+  {
+   "name": "Curado",
+   "core": true
+  },
+  {
+   "name": "Daniel",
+   "core": true
+  },
+  {
+   "name": "David",
+   "core": true
+  },
+  {
+   "name": "Diogo",
+   "core": false
+  },
+  {
+   "name": "Fabrice",
+   "core": true
+  },
+  {
+   "name": "Hilário",
+   "core": true
+  },
+  {
+   "name": "Hugo",
+   "core": false
+  },
+  {
+   "name": "João Pedro",
+   "core": true
+  },
+  {
+   "name": "João Prudêncio",
+   "core": true
+  },
+  {
+   "name": "João Silva",
+   "core": true
+  },
+  {
+   "name": "Lameira",
+   "core": true
+  },
+  {
+   "name": "Lino",
+   "core": true
+  },
+  {
+   "name": "Pieter",
+   "core": true
+  },
+  {
+   "name": "Samuel",
+   "core": true
+  },
+  {
+   "name": "Tiago",
+   "core": true
+  },
+  {
+   "name": "Tozé",
+   "core": true
+  },
+  {
+   "name": "Xixa",
+   "core": true
+  },
+  {
+   "name": "Telmo",
+   "core": false
+  }
+ ],
+ "games": [
+  {
+   "date": "2026-09-07",
+   "cost": 15,
+   "a": {
+    "g": 7,
+    "p": [
+     "André",
+     "David",
+     "Fabrice",
+     "Lino",
+     "Pieter",
+     "Tiago"
+    ]
+   },
+   "b": {
+    "g": 7,
+    "p": [
+     "Curado",
+     "João Pedro",
+     "João Prudêncio",
+     "João Silva",
+     "Lameira",
+     "Tozé"
+    ]
+   }
+  },
+  {
+   "date": "2026-09-14",
+   "cost": 15,
+   "a": {
+    "g": 11,
+    "p": [
+     "Tozé",
+     "Daniel",
+     "Tiago",
+     "João Pedro",
+     "Pieter"
+    ]
+   },
+   "b": {
+    "g": 6,
+    "p": [
+     "André",
+     "João Prudêncio",
+     "Hilário",
+     "Lameira",
+     "Curado",
+     "Fabrice"
+    ]
+   }
+  },
+  {
+   "date": "2026-09-21",
+   "cost": 15,
+   "a": {
+    "g": 6,
+    "p": [
+     "Daniel",
+     "João Prudêncio",
+     "Tozé",
+     "Lameira",
+     "Tiago",
+     "Pieter"
+    ]
+   },
+   "b": {
+    "g": 4,
+    "p": [
+     "Adriano",
+     "André",
+     "Fabrice",
+     "Lino",
+     "Hilário",
+     "Curado"
+    ]
+   }
+  },
+  {
+   "date": "2026-09-28",
+   "cost": 15,
+   "a": {
+    "g": 11,
+    "p": [
+     "Adriano",
+     "André",
+     "David",
+     "Lameira",
+     "Hugo"
+    ]
+   },
+   "b": {
+    "g": 8,
+    "p": [
+     "Curado",
+     "Daniel",
+     "Fabrice",
+     "João Silva",
+     "Pieter"
+    ]
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "cost": 17.5,
+   "a": {
+    "g": 11,
+    "p": [
+     "Curado",
+     "André",
+     "Tozé",
+     "Adriano",
+     "Diogo"
+    ]
+   },
+   "b": {
+    "g": 8,
+    "p": [
+     "Lameira",
+     "Pieter",
+     "Tiago",
+     "David",
+     "Daniel"
+    ]
+   }
+  },
+  {
+   "date": "2026-10-12",
+   "cost": 15,
+   "a": {
+    "g": 11,
+    "p": [
+     "André",
+     "Lameira",
+     "João Prudêncio",
+     "Hilário",
+     "Telmo"
+    ]
+   },
+   "b": {
+    "g": 8,
+    "p": [
+     "Diogo",
+     "Tiago",
+     "Pieter",
+     "Fabrice",
+     "Daniel"
+    ]
+   }
+  }
+ ],
+ "pay": {
+  "ADRIANO": [
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "ANDRÉ": [
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "CURADO": [
+   5,
+   5,
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "DANIEL": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "DAVID": [
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "DIOGO": [
+   null,
+   3,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "FABRICE": [
+   5,
+   5,
+   5,
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "HILÁRIO": [
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "HUGO": [
+   1.5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "JOÃO PEDRO": [
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "JOÃO PRUDÊNCIO": [
+   5,
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "JOÃO SILVA": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "LAMEIRA": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "LINO": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "PIETER": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "SAMUEL": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "TIAGO": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "TOZÉ": [
+   5,
+   5,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "XIXA": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "OUTROS": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ }
+}
