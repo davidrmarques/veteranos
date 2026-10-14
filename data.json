@@ -1,6 +1,6 @@
 {
  "season": "2026/2027",
- "updated": "2026-10-13",
+ "updated": "2026-10-14",
  "quota": 5,
  "guestFee": 1.5,
  "opening": 25,
@@ -447,7 +447,7 @@
    null
   ],
   "SAMUEL": [
-   null,
+   "-",
    null,
    null,
    null,
@@ -486,7 +486,7 @@
    null
   ],
   "XIXA": [
-   null,
+   "-",
    null,
    null,
    null,
