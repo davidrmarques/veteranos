@@ -1,6 +1,6 @@
 {
  "season": "2026/2027",
- "updated": "2026-10-14",
+ "updated": "2026-10-21",
  "quota": 5,
  "guestFee": 1.5,
  "opening": 25,
@@ -96,6 +96,10 @@
   },
   {
    "name": "Telmo",
+   "core": false
+  },
+  {
+   "name": "Évora",
    "core": false
   }
  ],
@@ -246,6 +250,32 @@
      "Pieter",
      "Fabrice",
      "Daniel"
+    ]
+   }
+  },
+  {
+   "date": "2026-10-19",
+   "cost": 15,
+   "a": {
+    "g": 7,
+    "p": [
+     "André",
+     "Tozé",
+     "Tiago",
+     "Xixa",
+     "Fabrice",
+     "Évora"
+    ]
+   },
+   "b": {
+    "g": 3,
+    "p": [
+     "Lameira",
+     "Curado",
+     "Daniel",
+     "Lino",
+     "Hilário",
+     "João Silva"
     ]
    }
   }
