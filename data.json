@@ -1,6 +1,6 @@
 {
  "season": "2026/2027",
- "updated": "2026-10-21",
+ "updated": "2026-10-27",
  "quota": 5,
  "guestFee": 1.5,
  "opening": 25,
@@ -276,6 +276,30 @@
      "Lino",
      "Hilário",
      "João Silva"
+    ]
+   }
+  },
+  {
+   "date": "2026-10-26",
+   "cost": 15,
+   "a": {
+    "g": 9,
+    "p": [
+     "David",
+     "Tozé",
+     "Hugo",
+     "Lino",
+     "Pieter"
+    ]
+   },
+   "b": {
+    "g": 9,
+    "p": [
+     "Fabrice",
+     "Daniel",
+     "Hilário",
+     "Tiago",
+     "Samuel"
     ]
    }
   }
