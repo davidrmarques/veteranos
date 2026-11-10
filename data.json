@@ -1,6 +1,6 @@
 {
  "season": "2026/2027",
- "updated": "2026-11-05",
+ "updated": "2026-11-10",
  "quota": 5,
  "guestFee": 1.5,
  "opening": 25,
@@ -326,6 +326,32 @@
      "João Prudêncio"
     ]
    }
+  },
+  {
+   "date": "2026-11-09",
+   "cost": 10,
+   "a": {
+    "g": 6,
+    "p": [
+     "André",
+     "João Prudêncio",
+     "João Silva",
+     "João Pedro",
+     "Pieter",
+     "Tiago"
+    ]
+   },
+   "b": {
+    "g": 7,
+    "p": [
+     "David",
+     "Daniel",
+     "Tozé",
+     "Hilário",
+     "Lameira",
+     "Hugo"
+    ]
+   }
   }
  ],
  "pay": {
@@ -345,10 +371,10 @@
   "ANDRÉ": [
    5,
    5,
-   null,
-   null,
-   null,
-   null,
+   5,
+   5,
+   5,
+   5,
    null,
    null,
    null,
@@ -423,8 +449,8 @@
   "HILÁRIO": [
    5,
    5,
-   null,
-   null,
+   5,
+   5,
    null,
    null,
    null,
